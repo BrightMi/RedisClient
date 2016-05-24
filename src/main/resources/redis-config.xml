@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<redis-apps>
+	<app>
+		<id>redisCluster</id>
+		<type>cluster</type>
+		<maxIdle>100000</maxIdle> <!-- 池对象最大空闲时间，单位：毫秒 -->
+		<maxTotal>100</maxTotal> <!-- 最大数量 -->
+		<servers>
+			<server host="10.185.240.132" port="7000" />
+			<server host="10.185.240.132" port="7001" />
+			<server host="10.185.240.132" port="7002" />
+			<server host="10.185.240.132" port="7003" />
+			<server host="10.185.240.132" port="7004" />
+			<server host="10.185.240.132" port="7005" />
+		</servers>
+	</app>
+	<app>
+		<id>shardRedis</id>
+		<type>shard</type>
+		<maxIdle>100000</maxIdle>
+		<maxTotal>100</maxTotal>
+		<servers>
+			<server host="10.185.240.131" port="6379" />
+			<server host="10.185.240.131" port="6679" />
+		</servers>
+	</app>
+	<app>
+		<id>simpleRedis</id>
+		<type>simple</type>
+		<maxIdle>100000</maxIdle>
+		<maxTotal>100</maxTotal>
+		<auth>foobared</auth> <!-- 授权密码 -->
+		<servers>
+			<server host="10.185.240.132" port="6379" />
+		</servers>
+	</app>
+</redis-apps>
